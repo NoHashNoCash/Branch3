@@ -25,7 +25,7 @@ SECRET_KEY = ')t@9w%@%3cwjr(ks67xw9+n9)_@aduvh!*67-)t0nry6dj*jke'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['obscure-dusk-11014.herokuapp.com']
 
 
 # Application definition
@@ -161,6 +161,3 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 LOGIN_REDIRECT_URL = 'save-home'
 
 LOGIN_URL = 'login'
-
-MEDIA_ROOT = os.path.join(BASE_DIR,'media')
-MEDIA_URL = '/media/'

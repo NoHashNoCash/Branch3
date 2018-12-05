@@ -42,8 +42,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/untitled4/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1268">
-              <caret line="153" column="37" lean-forward="true" selection-start-line="153" selection-start-column="37" selection-end-line="153" selection-end-column="37" />
+            <state relative-caret-position="486">
+              <caret line="107" column="91" lean-forward="true" selection-start-line="107" selection-start-column="91" selection-end-line="107" selection-end-column="91" />
             </state>
           </provider>
         </entry>
@@ -348,12 +348,12 @@
       <workItem from="1543990696832" duration="5609000" />
       <workItem from="1543996512345" duration="1226000" />
       <workItem from="1544010798974" duration="87000" />
-      <workItem from="1544011074805" duration="2083000" />
+      <workItem from="1544011074805" duration="2755000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="82748000" />
+    <option name="totallyTimeSpent" value="83420000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -705,8 +705,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/untitled4/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1268">
-          <caret line="153" column="37" lean-forward="true" selection-start-line="153" selection-start-column="37" selection-end-line="153" selection-end-column="37" />
+        <state relative-caret-position="486">
+          <caret line="107" column="91" lean-forward="true" selection-start-line="107" selection-start-column="91" selection-end-line="107" selection-end-column="91" />
         </state>
       </provider>
     </entry>

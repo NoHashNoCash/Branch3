@@ -1,0 +1,86 @@
+{% extends "Save/base.html" %}
+{% block styles %}
+
+    #table-container{overflow:scroll; max-height:300px; margin-left:auto;}
+    #chart1{margin:auto; margin-left:100px}
+    #jqplot.title{margin-left:15px}
+    #title{font-size:25pt; font-family:"lato"; color:#7dcf82; margin:auto; font-weight:400; margin-bottom:30px}
+    #label{font-size:20pt; font-family:"lato"; color:#7dcf82; margin:auto; font-weight:400; margin-bottom:30px; margin-top:30px}
+    #status{font-size:25pt; font-family:"lato"; color:#7dcf82; margin:auto; font-weight:400; margin-bottom:50px; margin-top:10px; }
+    #add{margin:auto ;margin-bottom:30px; display:block; width:45%;margin-top:30px;}
+    h2{font-size:20pt; font-family:"lato"; color:#7dcf82; margin:auto; font-weight:400;}
+     h4{font-size:16pt; font-family:"lato"; color:gray; margin:auto; font-weight:300;}
+    #edit{margin-top:40px; margin-left:50px;)
+{% endblock styles %}
+{% block scripts %}
+    {% for total in results %}
+<script>
+    $(document).ready(function(){
+
+    $.jqplot.config.enablePlugins = true;
+
+    var plot1 = $.jqplot('chart1', [[['Necessities ',{{ total.necessitiestotal }}],['Savings ',{{ total.savingstotal }}],['Fun ',{{ total.funtotal }}]]], {
+        gridPadding: {top:0, bottom:38, left:0, right:0},
+        seriesColors:['#7dcf82', '#E8E8E8', '#808080', '#C7754C', '#17BDB8'],
+        seriesDefaults:{
+            renderer:$.jqplot.PieRenderer,
+            trendline:{ show:false },
+            rendererOptions: { padding: 8, showDataLabels: true}
+        },
+        grid: {
+         background: "transparent",
+            borderColor: "transparent",
+             shadow: false,
+        },
+         legend: {
+             show: true,
+         }
+
+    });
+});
+
+
+    {% endfor %}
+</script>
+{% endblock scripts %}
+{% block content %}
+
+    {% for total in results %}
+      {% for transaction in total.budgetresults  %}
+  <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+        <h1 id = "title">Savings Progress</h1>
+        <div id="chart1" style="height:300px; width:500px;"></div>
+            <div class = "row">
+                <div class = "col-md-6 text-center">
+                    <h2>Goals:</h2>
+                    <h4>Necessities: {{ transaction.necessity_pct }}%</h4>
+                     <h4>Savings: {{ transaction.savings_pct }} %</h4>
+                    <h4>Fun: {{ transaction.fun_pct }}%</h4>
+                </div>
+                 <div class = "col-md-6 text-center">
+                    <h2>Current Status:</h2>
+                    <h4>Necessities: {{ total.necessitiespercent}}%</h4>
+                     <h4>Savings: {{ total.savingspercent }}%</h4>
+                    <h4>Fun: {{ total.funpercent }}%</h4>
+                </div>
+            </div>
+
+
+          <div class = "row">
+                <div class = "col-md-12 col-md-offset-4">
+                        <form action = "{% url "budget-edit" transaction.id %}">
+                       <button type="submit"  class = 'btn btn-success' id = "edit">Edit Budget</a> </button>
+                        </form>
+            </div>
+                </div>
+          </div>
+
+      {% endfor %}
+          {% endfor %}
+</div>
+</div>
+
+
+</div>
+{% endblock content %}

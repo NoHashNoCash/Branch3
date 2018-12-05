@@ -1,0 +1,22 @@
+{% extends "Save/base.html" %}
+{% block styles %}
+{% endblock styles %}
+{% block content %}
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+            <form method = "POST">
+                {% csrf_token %}
+                <fieldset class ="form-group">
+                    <legend class = "border-bottom mb-4"> Delete Post</legend>
+                    <h2>Are you sure you want to delete this transaction?</h2>
+                </fieldset>
+                <div class = "form-group">
+                    <button class="btn btn-danger" type="submit">Confirm</button>
+                    <a class="btn btn-secondary" href ="{% url "save-transactions" %}">Cancel</a>
+                </div>
+            </form>
+
+        </div>
+    </div>
+    </div>
+{% endblock content %}

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     {% load static %}
+  <title>StartSave.com</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+     <script type="text/javascript" src= "{%static "Save/jquery.js" %}" ></script>
+
+    <script type="text/javascript" src= "{%static "Save/jquery.jqplot.js" %}"></script>
+
+    <link rel="stylesheet" type = "text/css" href = "{%static "Save/jquery.jqplot.css" %}">
+
+    <script type="text/javascript" src= "{%static "Save/plugins/jqplot.pieRenderer.js" %}"></script>
+
+    <script type="text/javascript" src= "{%static "Save/plugins/jqplot.categoryAxisRenderer.js" %}"></script>
+
+
+
+
+
+  <style>
+    #logo{font-family:"lato"; font-size:30pt; margin-top:5px; color:#7dcf82; margin-left:15px; text-decoration: none;}
+	.navbar-default{background-color: white;}
+	.navbar-nav{font-size:15pt; margin-top:12px; margin-left:15px}
+	#signinorup{ float:right;}
+        {% block styles %}{% endblock %}
+  </style>
+    {% block scripts %}{% endblock %}
+</head>
+<body>
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+        <p id = 'logo' ><a id = 'logo' href="{% url 'save-home' %} ">Save</a></p>
+    </div>
+    <ul class="nav navbar-nav">
+         {% if user.is_authenticated %}
+      <li><a href="{% url 'save-home' %} ">Home</a></li>
+      <li><a href="{% url 'save-progress' %} ">My Progress</a></li>
+      <li><a href="{% url 'save-transactions' %}">Transactions</a></li>
+        {% endif %}
+    </ul>
+	<ul class="nav navbar-nav" id = "signinorup">
+        {% if user.is_authenticated %}
+            <li id ="signinorup"><a href="{% url 'logout' %} ">Logout</a></li>
+            <li id ="signinorup"><a href="{% url 'profile' %} ">Profile</a></li>
+            <li id ="signinorup"><a href="#">Logged in as: {{ user.username }}</a></li>
+        {% else %}
+          <li id ="signinorup"><a href="{% url 'register' %} ">Sign Up</a></li>
+          <li id ="signinorup"><a href="{% url 'login' %} ">Sign in</a></li>
+        {% endif %}
+    </ul>
+  </div>
+    {% if messages %}
+        {% for message in messages %}
+        <div class = "alert alert-{{ message.tags }}">
+            {{ message }}
+        </div>
+        {% endfor %}
+    {% endif %}
+    {% block content %}
+
+    {% endblock %}
+
+</nav>
+</body>
+</html>

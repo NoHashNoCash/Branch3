@@ -90,10 +90,10 @@ WSGI_APPLICATION = 'untitled4.wsgi.application'
 DATABASES = {
    'default': {
       'ENGINE': 'mysql.connector.django',
-      'NAME': 'database_mysql',
-      'USER': 'root',
-      'PASSWORD': 'password',
-      'HOST': 'localhost',
+      'NAME': 'heroku_1848a4c17b5b719`',
+      'USER': 'bd3ddb14b8e1fb',
+      'PASSWORD': '1de4b421',
+      'HOST': 'us-cdbr-iron-east-01.cleardb.net',
       'PORT': '3306',
    }
 }

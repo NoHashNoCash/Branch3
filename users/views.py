@@ -11,7 +11,7 @@ def register(request):
         form = UserRegisterForm(request.POST);
         if form.is_valid():
             form.save()
-            username = form.cleaned_data.get('username')
+            username = form.cleaned_data.get('username',False)
             messages.success(request, f'Account Created! You are now able to login')
             return redirect('budget-create')
     else:
